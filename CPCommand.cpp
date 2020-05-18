@@ -23,7 +23,6 @@ int CPCommand::execute(std::string& CWD, std::string options) {
 		cout << "failed to open directory" << endl;
 		return directorydoesnotexist;
 	}
-	// DirectoryFile* der = dynamic_cast<DirectoryFile*>(from);
 	auto newFile = from->clone();
 	fs->closeFile(from);
 	// The file is a directory, throw an error
@@ -50,7 +49,6 @@ int CPCommand::execute(std::string& CWD, std::string options) {
 		cout << "The user attempted to copy to an image or text file" << endl;
 		return copyTOiORt;
 	}
-	// delete der1;
 	// Add the fileName onto the location to copy to
 	locationToCopyTo = locationToCopyTo + '/' + fileName;
 	fs->addFile(locationToCopyTo, newFile);
