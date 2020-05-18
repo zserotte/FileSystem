@@ -8,7 +8,6 @@ Purpose: CSE332 lab 5, declares a TextFile class
 #include<vector>
 
 class TextFile : public AbstractFile {
-	//friends
 	friend class SimpleFileSystem;
 	friend class HierarchicalFileSystem;
 public:
