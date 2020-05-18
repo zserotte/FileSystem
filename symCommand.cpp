@@ -3,7 +3,6 @@
 #include <sstream>
 #include "DirectoryFile.h"
 #include "Proxy.h"
-// #include "HierarchicalFileSystem.h"
 
 using namespace std;
 
@@ -29,7 +28,6 @@ int symCommand::execute(std::string& CWD, std::string options)
 	DirectoryFile* fromCheck = dynamic_cast<DirectoryFile*>(from);
 	if (fromCheck != nullptr) {
 		cout << "The user attempted to create a symbolic link to a directory" << endl;
-		//delete fromCheck;
 		return symToDirectory;
 	}
 	//delete fromCheck; // Deleting nullptr
@@ -51,11 +49,9 @@ int symCommand::execute(std::string& CWD, std::string options)
 	if (toCheck == nullptr) {
 		fs->closeFile(to);
 		fs->closeFile(from);
-		//delete toCheck;
 		cout << "The user attempted to symbollicaly link to an image or text file" << endl;
 		return copyTOiORt;
 	}
-	//delete toCheck;
 	// Check if the file that we opened is a proxy object
 	Proxy* fileToCopy = dynamic_cast<Proxy*>(from);
 	locationToCopyTo = locationToCopyTo + '/' + fileName;
@@ -86,11 +82,6 @@ int symCommand::execute(std::string& CWD, std::string options)
 		return success;
 	}
 
-	/* auto newFile = from->clone();
-
-	// Add the fileName onto the location to copy to
-	locationToCopyTo = locationToCopyTo + '/' + fileName;
-	return 0; */
 }
 
 void symCommand::displayInfo() {
