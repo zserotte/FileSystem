@@ -120,10 +120,6 @@ int HierarchicalFileSystem::deleteFile(std::string path) {
 			return directorynotempty;
 		}
 	}
-
-	/* parent->removeChild(fileToDelete->getName()); // remove from parent, this rewrites parent's contents also
-	delete fileToDelete;
-	return success; */
 }
 
 AbstractFile* HierarchicalFileSystem::openFile(std::string path) {
